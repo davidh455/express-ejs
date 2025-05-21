@@ -11,7 +11,7 @@ const app = express();
 app.set('view engine', 'ejs');
 
 //this will allow us to serve up static files, CSS, images & JS
-app.use(express.static('public'));
+app.use(express.static(__dirname));
 
 //index/home URL
 app.get('/',(req,res)=>{
@@ -23,8 +23,18 @@ app.get('/',(req,res)=>{
 //about page/url
 app.get('/about',(req,res)=>{
   let title = "About Page";
-  res.render('pages/about', {'title': title});;
+  res.render('pages/about', {'title': title});
 
+});
+
+app.get('/travel', (req, res) => {
+  let title = "Travel Page";
+  res.render('pages/travel', {'title': title});
+});
+
+app.get('/gaming', (req, res) => {
+  let title = "Gaming Page"
+  res.render('pages/gaming', {'title': title});
 });
 
 
